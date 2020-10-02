@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stacksimplify.restservices.entities.User;
+import com.stacksimplify.restservices.entities.User1;
 import com.stacksimplify.restservices.repositories.UserRepository;
 
 @Service
@@ -18,24 +18,24 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	//getAllUsers Method
-	public List<User> getAllUsers(){
+	public List<User1> getAllUsers(){
 		return userRepository.findAll();
 	}
 	
 	//Create User method
-	public User createUser(User user) {
+	public User1 createUser(User1 user) {
 		return userRepository.save(user);
 	}
 	
 	//get user by id
-	public Optional<User> getUserById(Long id) {
-		Optional<User> user = userRepository.findById(id);
+	public Optional<User1> getUserById(Long id) {
+		Optional<User1> user = userRepository.findById(id);
 		return user;
 	}
 	
 	
 	//update user by Id
-	public User updateUserById(Long id, User user) {
+	public User1 updateUserById(Long id, User1 user) {
 		user.setId(id);
 		return userRepository.save(user);
 	}
@@ -48,7 +48,7 @@ public class UserService {
 	}
 	
 	//getUserByUserName
-	public User getUserByUsername(String username) {
+	public User1 getUserByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
 	

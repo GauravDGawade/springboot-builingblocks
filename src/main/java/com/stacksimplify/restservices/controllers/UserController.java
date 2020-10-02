@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stacksimplify.restservices.entities.User;
+import com.stacksimplify.restservices.entities.User1;
 import com.stacksimplify.restservices.services.UserService;
 
 //Controller
@@ -25,7 +25,7 @@ public class UserController {
 	//getAllUsers Method
 	
 	@GetMapping("/users")
-	public List<User> getAllUsers(){
+	public List<User1> getAllUsers(){
 		return userService.getAllUsers();
 	}
 	
@@ -34,19 +34,19 @@ public class UserController {
 	//@PostMapping Annotation
 	
 	@PostMapping("/users")
-	public User createUser(@RequestBody User user) {
+	public User1 createUser(@RequestBody User1 user) {
 		return userService.createUser(user);
 	}
 	
 	//Get user by Id
 	@GetMapping("/users/{id}")
-	public Optional<User> getUserById(@PathVariable("id") Long id){
+	public Optional<User1> getUserById(@PathVariable("id") Long id){
 		return userService.getUserById(id);
 	}
 	
 	//Update user by Id
 	@PutMapping("/users/{id}")
-	public User updateUserById(@PathVariable("id") Long id, @RequestBody User user) {
+	public User1 updateUserById(@PathVariable("id") Long id, @RequestBody User1 user) {
 		return userService.updateUserById(id, user);
 	}
 	
@@ -58,7 +58,7 @@ public class UserController {
 	
 	//Get User by username
 	@GetMapping("/users/byusername/{username}")
-	public User getUserByUsername(@PathVariable("username") String username) {
+	public User1 getUserByUsername(@PathVariable("username") String username) {
 		return userService.getUserByUsername(username);
 	}
 }

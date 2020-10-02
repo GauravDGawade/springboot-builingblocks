@@ -3,6 +3,7 @@ package com.stacksimplify.restservices.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,12 +13,12 @@ import javax.persistence.Table;
 //Every instance of Entity represents a row in table
 
 @Entity
-@Table (name = "user")
-public class User {
+@Table (name = "user1")
+public class User1 {
 	
 	//Each JPA entity should have primary key
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "USER_NAME", length=50, nullable = false, unique=true)
@@ -35,18 +36,18 @@ public class User {
 	@Column(name = "ROLE", length=50, nullable = false)
 	private String role;
 	
-	@Column(name = "SSN", length=50, nullable = false, unique=true)
+	@Column(name = "SSN", length=50, nullable = false)
 	private String ssn;
 
 	//No Argument Constructor
-	public User() {
+	public User1() {
 
 	}
 
 
 	
 	//Fields Constructor
-	public User(Long id, String username, String firstname, String lastname, String email, String role, String ssn) {
+	public User1(Long id, String username, String firstname, String lastname, String email, String role, String ssn) {
 		super();
 		this.id = id;
 		this.username = username;
